@@ -1,34 +1,40 @@
-# Data folders (never commit raw/processed data)
-data/
-data/raw/
-data/processed/
-
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
-env/
-venv/
-.venv/
-ENV/
+*.egg
 *.egg-info/
 dist/
 build/
 .eggs/
-*.egg
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Jupyter Notebooks checkpoints
+# Jupyter
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 
-# Environment variables
+# Data files (large)
+data/raw/
+*.parquet
+*.csv
+!data/processed/.gitkeep
+
+# Vector store (large binary files)
+vector_store/*.index
+vector_store/*.pkl
+vector_store/chroma/
+
+# Environment
 .env
-.env.*
-!.env.example
-.venv/
-# IDEs
+.env.local
+
+# IDE
 .vscode/
 .idea/
 *.swp
@@ -38,21 +44,15 @@ build/
 .DS_Store
 Thumbs.db
 
-# Model artifacts
-models/
-*.pkl
-*.joblib
-*.h5
-
 # Logs
-logs/
 *.log
+logs/
 
-# MLflow
-mlruns/
-mlartifacts/
+# Model cache
+.cache/
+huggingface/
 
-# Coverage
-.coverage
+# Build artifacts
 htmlcov/
+.coverage
 .pytest_cache/
